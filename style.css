@@ -1,3 +1,46 @@
+/* FAQ Styles */
+.faq {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+.faq-item {
+  margin-bottom: 18px;
+}
+.faq-question {
+  width: 100%;
+  background: linear-gradient(135deg, #ff8fb1 60%, #f8c8dc 100%);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 16px 22px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 12px rgba(255, 143, 177, 0.13);
+  outline: none;
+}
+.faq-question:focus, .faq-question:hover {
+  background: linear-gradient(135deg, #ff6f9f 60%, #ff8fb1 100%);
+  box-shadow: 0 4px 18px rgba(255, 143, 177, 0.18);
+}
+.faq-answer {
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(.68,-0.55,.27,1.55), margin-top 0.3s;
+  font-size: 1em;
+  color: #333;
+  box-shadow: 0 2px 12px rgba(255, 143, 177, 0.08);
+}
 body {
   margin: 0;
   font-family: 'Luckiest Guy', 'Baloo 2', 'Poppins', sans-serif;
