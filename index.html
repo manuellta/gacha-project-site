@@ -34,20 +34,26 @@
       <div class="faq">
         <div class="faq-item">
           <button class="faq-question"><b>What is the project about?</b></button>
-          <div class="faq-answer">
+          <div class="faq-answer" style="max-height:0;margin-top:0;">
             It's about the story of Alex Warren and Kouvr Annon and their love story! It is heavily inspired by it but also a lot of my own inspiration put into it to become a more of an "original" project. The story tells of how Alex Warren was before his fame and his childhood, how he rose up to his fame and found his now wife. For Kouvr Annon's story part I had to wing it a bit more and go with my inspiration for her past self and a little of her childhood. Not knowing so much about her or her past life as it has not been told yet, so far of what I know at least.
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question"><b>How did you come up with this idea?</b></button>
-          <div class="faq-answer">
+          <div class="faq-answer" style="max-height:0;margin-top:0;">
             It started off with me wanting to start with a new project in hopes of looking for something more original. Coming up with a lot of ideas such as "The forbidden forest" or "Protector of the crystals" I didn't really stick to them or feel they were so original. I started to think really hard and eventually came across a video of Alex Warren's past, how it wasn't so bright. I felt heavily inspired and took that inspiration to make a video for people to help out! I eventually had some people texting me that they would like to help out with my idea of a project and that is how I started my community and idea!
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question"><b>How long have you been working on this project?</b></button>
-          <div class="faq-answer">
+          <div class="faq-answer" style="max-height:0;margin-top:0;">
             I started the project on May 22nd 2025 so it has been active for a while! It is a long term project too since it is a lot of work and I am not the fastest worker either...
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><b>When is the release date?</b></button>
+          <div class="faq-answer" style="max-height:0;margin-top:0;">
+            Well due to the slower production it so far has no release dates. But! I do post character introductions and small edits of the characters to keep the community alive and updated. To not just let you hanging, I could estimate the release of movie 1 Kouvr Annon's story to be released in late 2027 early 2028 if lengthened!
           </div>
         </div>
       </div>
@@ -97,16 +103,21 @@
 
     // FAQ slide-down logic
     document.addEventListener('DOMContentLoaded', function() {
+      var faqAnswers = document.querySelectorAll('.faq-answer');
+      faqAnswers.forEach(function(a) {
+        a.style.maxHeight = '0';
+        a.style.marginTop = '0';
+      });
       document.querySelectorAll('.faq-question').forEach(function(btn) {
         btn.addEventListener('click', function() {
           const answer = btn.nextElementSibling;
-          if (answer.style.maxHeight) {
-            answer.style.maxHeight = null;
-            answer.style.marginTop = null;
+          if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+            answer.style.maxHeight = '0';
+            answer.style.marginTop = '0';
           } else {
-            document.querySelectorAll('.faq-answer').forEach(a => {
-              a.style.maxHeight = null;
-              a.style.marginTop = null;
+            faqAnswers.forEach(a => {
+              a.style.maxHeight = '0';
+              a.style.marginTop = '0';
             });
             answer.style.maxHeight = answer.scrollHeight + 'px';
             answer.style.marginTop = '12px';
