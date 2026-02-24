@@ -3,22 +3,22 @@
 .header-flower {
   position: absolute;
   bottom: 0;
-  width: 275px;
+    width: 48px;
   height: 275px;
   z-index: 2;
   pointer-events: none;
 }
 .header-flower.left {
   left: 0;
-  transform: translate(-0%, 0%);
+    transform: translate(-20%, 20%) rotate(-10deg);
 }
 .header-flower.right {
   right: 0;
-  transform: translate(0%, 0%);
+    transform: translate(20%, 20%) rotate(10deg);
 }
 @media (max-width: 700px) {
   .header-flower {
-    width: 54px;
+     width: 32px;
   }
 }
 /* FAQ Arrow Styles */
