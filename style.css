@@ -1,3 +1,14 @@
+/* FAQ Arrow Styles */
+.faq-question .arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+  margin-right: 10px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+.faq-question .arrow.open {
+  transform: rotate(180deg);
+}
 /* FAQ Styles */
 .faq {
   max-width: 700px;
