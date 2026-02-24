@@ -3,23 +3,25 @@
 .header-flower {
   position: absolute;
   bottom: 0;
-    width: 48px;
-  height: 275px;
+  width: 40px;
+  height: auto;
   z-index: 2;
   pointer-events: none;
 }
+}
 .header-flower.left {
   left: 0;
-    transform: translate(-20%, 20%) rotate(-10deg);
+}
 }
 .header-flower.right {
   right: 0;
-    transform: translate(20%, 20%) rotate(10deg);
+}
 }
 @media (max-width: 700px) {
   .header-flower {
-     width: 32px;
+    width: 24px;
   }
+}
 }
 /* FAQ Arrow Styles */
 .faq-question .arrow {
