@@ -1,3 +1,26 @@
+/* Header Flower Decorations */
+/* Header Flower Decorations - Bottom Corners */
+.header-flower {
+  position: absolute;
+  bottom: 0;
+  width: 275px;
+  height: 275px;
+  z-index: 2;
+  pointer-events: none;
+}
+.header-flower.left {
+  left: 0;
+  transform: translate(-0%, 0%);
+}
+.header-flower.right {
+  right: 0;
+  transform: translate(0%, 0%);
+}
+@media (max-width: 700px) {
+  .header-flower {
+    width: 54px;
+  }
+}
 /* FAQ Arrow Styles */
 .faq-question .arrow {
   display: inline-block;
@@ -79,6 +102,8 @@ header {
   border-radius: 30px;
   margin-bottom: 50px;
   box-shadow: 0 4px 32px 0 rgba(255,143,177,0.10);
+  position: relative;
+  overflow: visible;
 }
 
 section {
