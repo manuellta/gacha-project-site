@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Story of My Life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <a href="https://files.catbox.moe/z3opk5.png" target="_blank" style="display:inline-block;">
+      <img src="https://files.catbox.moe/z3opk5.png" alt="Story of My Life Logo" class="logo-image" style="background:rgba(255,255,255,0.5);border:4px solid #ff8fb1;box-shadow:0 16px 60px 0 rgba(255,143,177,0.18),0 2px 24px 0 rgba(255,143,177,0.10);border-radius:40px;max-width:700px;width:100%;margin-bottom:50px;margin-top:30px;object-fit:cover;">
+    </a>
+    <header>
+      <h1>Story of My Life</h1>
+      <p>A Gacha Voice Acting Project</p>
+    </header>
+    <nav class="tab-nav">
+      <button class="tab-btn active" onclick="showTab('about')">About</button>
+      <button class="tab-btn" onclick="showTab('characters')">Main Characters</button>
+      <button class="tab-btn" onclick="showTab('fanart')">Fanart</button>
+      <button class="tab-btn" onclick="showTab('credits')">Credits</button>
+      <button class="tab-btn" onclick="showTab('support')">Support</button>
+    </nav>
+    <section id="about" class="tab-section" style="display:block;">
+      <h2>About the Project</h2>
+      <p>
+        This is a community-driven Gacha series featuring voice acting,
+        original characters and emotional storytelling.
+      </p>
+    </section>
+    <section id="characters" class="tab-section" style="display:none;">
+      <h2>Main Characters</h2>
+      <div class="card">
+        <h3>Character Name</h3>
+        <p>Description of the character.</p>
+        <p><strong>Voice Actor:</strong> Name</p>
+      </div>
+    </section>
+    <section id="fanart" class="tab-section" style="display:none;">
+      <h2>Fanart</h2>
+      <div class="card">
+        <h3>Fanart Gallery</h3>
+        <p>Showcase of fanart for the project. (Add images or links here!)</p>
+      </div>
+    </section>
+    <section id="credits" class="tab-section" style="display:none;">
+      <h2>Credits</h2>
+      <p>Project by HinaStudiosss and contributors.</p>
+    </section>
+    <section id="support" class="tab-section" style="display:none;">
+      <h2>Support the Project</h2>
+      <a class="button" href="#">Donate Here</a>
+      <div class="social-links" style="margin-top:30px;">
+        <a class="button" href="https://www.tiktok.com/@hinastudiosss" target="_blank">TikTok</a>
+        <a class="button" href="https://www.youtube.com/@HinaStudiosss/featured" target="_blank">YouTube</a>
+        <a class="button" href="https://discord.gg/cmJPBar2w6" target="_blank">Discord</a>
+        <a class="button" href="https://www.castingcall.club/Hina_Aesthetics" target="_blank">Casting Call Club</a>
+      </div>
+    </section>
+  </div>
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-section').forEach(s => s.style.display = 'none');
+      document.getElementById(tabId).style.display = 'block';
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const btns = document.querySelectorAll('.tab-btn');
+      if(tabId === 'about') btns[0].classList.add('active');
+      if(tabId === 'characters') btns[1].classList.add('active');
+      if(tabId === 'fanart') btns[2].classList.add('active');
+      if(tabId === 'credits') btns[3].classList.add('active');
+      if(tabId === 'support') btns[4].classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
