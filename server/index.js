@@ -7,14 +7,22 @@ import cors from "cors";
 import dotenv from "dotenv";
 import sqlite3 from "sqlite3";
 import path from "path";
+import { fileURLToPath } from "url";
 
-// Load environment variables
+// ---- Fix __dirname in ES module ----
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// ---- Load environment variables ----
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// SQLite DB setup
+// ---- Serve frontend static files ----
+app.use(express.static(path.join(__dirname, "../"))); // serve files from project root
+
+// ---- SQLite DB setup ----
 const db = new sqlite3.Database("./comments.db");
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS users (
@@ -32,7 +40,7 @@ db.serialize(() => {
   )`);
 });
 
-// Session and Passport setup
+// ---- Session and Passport setup ----
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(session({
@@ -62,21 +70,32 @@ passport.use(new DiscordStrategy.Strategy({
   );
 }));
 
-// Auth routes
+// ---- Auth routes ----
+
+// Shortcut /login route
+app.get("/login", (req, res) => res.redirect("/auth/discord"));
+
+// Start Discord OAuth
 app.get("/auth/discord", passport.authenticate("discord"));
+
+// Discord callback
 app.get(
   "/auth/discord/callback",
   passport.authenticate("discord", { failureRedirect: "/auth/failed" }),
   (req, res) => {
-    // Redirect to the main site after login (for file:// usage)
-    res.redirect("/../index.html");
+    // Redirect to frontend homepage after login
+    res.redirect("/index.html");
   }
 );
+
+// Logout
 app.get("/auth/logout", (req, res) => {
   req.logout(() => {
     res.json({ ok: true });
   });
 });
+
+// Get logged-in user
 app.get("/auth/user", (req, res) => {
   if (req.isAuthenticated()) {
     res.json({ user: req.user });
@@ -85,7 +104,7 @@ app.get("/auth/user", (req, res) => {
   }
 });
 
-// Comments API
+// ---- Comments API ----
 app.get("/api/comments", (req, res) => {
   db.all(
     `SELECT c.*, u.username, u.avatar FROM comments c LEFT JOIN users u ON c.user_id = u.id ORDER BY c.created_at ASC`,
@@ -116,6 +135,17 @@ app.post("/api/comments", (req, res) => {
   );
 });
 
+// ---- Serve homepage ----
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../index.html"));
+});
+
+// Catch-all for frontend routing
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../index.html"));
+});
+
+// ---- Start server ----
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
