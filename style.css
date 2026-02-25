@@ -1,3 +1,35 @@
+/* Comment Section Styles */
+#comments-section {
+  margin-top: 60px;
+  padding-bottom: 40px;
+}
+.comment {
+  background: #fff6fa;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(255,143,177,0.07);
+}
+#comment-form textarea {
+  border: 1px solid #ff8fb1;
+  resize: vertical;
+}
+#comment-form button {
+  background: #ff8fb1;
+  color: #fff;
+}
+.reply-btn {
+  background: #ffe0ef;
+  color: #ff6f9f;
+  border: none;
+  border-radius: 8px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+.reply-btn:hover {
+  background: #ff8fb1;
+  color: #fff;
+}
 /* FAQ Arrow Styles */
 .faq-question .arrow {
   display: inline-block;
