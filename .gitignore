@@ -1,3 +1,11 @@
 node_modules/
+server/node_modules/
+
 .env
-*.log
+server/.env
+
+comments.db
+server/comments.db
+
+sessions
+server/sessions
